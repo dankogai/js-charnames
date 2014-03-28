@@ -13,4 +13,4 @@ for my $line ( split /\n/, require "unicore/Name.pl" ) {
     my $char = join "", map { chr hex $_ } split / /, $hex;
     $charnames{$char} ||= $name;
 }
-say "Charnames=", JSON::XS->new->ascii->encode( \%charnames ), ";";
+say "Charnames=", JSON::XS->new->ascii->canonical->encode( \%charnames ), ";";
